@@ -45,7 +45,6 @@ jobs:
           REPO_URL+="${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/"
           REPO_URL+="${{github.repository}}.git"
           GITHUB_HEAD="HEAD:refs/heads/fix-package-"
-          GITHUB_HEAD+="${{ steps.get_branch_name.outputs.branch_name }}-"
           GITHUB_HEAD+="${HEAD_REF}"
           git push -f "${REPO_URL}" "${GITHUB_HEAD}"
       - name: Set org name
@@ -68,7 +67,6 @@ jobs:
           script: |
             const HEAD_REF = process.env["HEAD_REF"]
             let head = "${{steps.set_org_name.outputs.result}}:fix-package-"
-            head += "${{ steps.get_branch_name.outputs.branch_name }}-"
             head += HEAD_REF
             const pulls_list_params = {
               owner: context.repo.owner,
@@ -95,7 +93,6 @@ jobs:
           script: |
             const HEAD_REF = process.env["HEAD_REF"]
             let head = "${{steps.set_org_name.outputs.result}}:fix-package-"
-            head += "${{ steps.get_branch_name.outputs.branch_name }}-"
             head += HEAD_REF
             const number = "#${{github.event.pull_request.number}}"
             let title = "package.jsonやpackage-lock.jsonを直してあげたよ！PRをマージしてね！ "
@@ -144,7 +141,6 @@ jobs:
           script: |
             const HEAD_REF = process.env["HEAD_REF"]
             let head_name = "fix-package-"
-            head_name += "${{ steps.get_branch_name.outputs.branch_name }}-"
             head_name += HEAD_REF
             const common_params = {
               owner: context.repo.owner,
