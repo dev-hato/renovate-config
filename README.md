@@ -1,5 +1,5 @@
 # renovate-config
-https://github.com/dev-hato におけるrenovateの共通設定です。
+[dev-hato](https://github.com/dev-hato)におけるrenovateの共通設定です。
 
 ## 開発
 ### 設定
