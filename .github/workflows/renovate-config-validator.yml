@@ -18,3 +18,5 @@ jobs:
           cache: npm
       - run: npm ci --prefer-offline
       - run: npx renovate-config-validator
+        env:
+          RENOVATE_CONFIG_FILE: default.json
