@@ -101,8 +101,7 @@ jobs:
             head += "${{ steps.get_branch_name.outputs.branch_name }}-"
             head += HEAD_REF
             const number = "#${{github.event.pull_request.number}}"
-            let title = "${{ matrix.directory }}の"
-            title += "package.jsonやpackage-lock.jsonを直してあげたよ！PRをマージしてね！ "
+            let title = "package.jsonやpackage-lock.jsonを直してあげたよ！PRをマージしてね！ "
             title += number
             const pulls_create_params = {
               owner: context.repo.owner,
