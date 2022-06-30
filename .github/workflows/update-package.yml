@@ -3,6 +3,9 @@ name: update-package
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   # npm installを実行し、package.jsonやpackage-lock.jsonに差分があればPRを作る
