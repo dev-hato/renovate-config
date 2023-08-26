@@ -1,16 +1,13 @@
 ---
 name: renovate-config-validator
-
 on:
   push:
     branches:
       - main
   pull_request:
-
 jobs:
   renovate-config-validator:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3.6.0
       - uses: actions/setup-node@v3.8.1
@@ -20,7 +17,6 @@ jobs:
       - run: npx renovate-config-validator --strict
         env:
           RENOVATE_CONFIG_FILE: default.json
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
