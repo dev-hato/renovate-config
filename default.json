@@ -10,6 +10,14 @@
   "configMigration": true,
   "packageRules": [
     {
+      "matchManagers": [
+        "gomod"
+      ],
+      "postUpdateOptions": [
+        "gomodTidy"
+      ]
+    },
+    {
       "matchPackageNames": [
         "npm"
       ],
