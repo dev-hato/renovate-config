@@ -51,6 +51,7 @@ jobs:
         uses: super-linter/super-linter/slim@v6.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
           LINTER_RULES_PATH: .
           RENOVATE_SHAREABLE_CONFIG_PRESET_FILE_NAMES: default.json
 concurrency:
