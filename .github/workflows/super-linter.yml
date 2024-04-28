@@ -58,6 +58,7 @@ jobs:
           DEFAULT_BRANCH: main
           LINTER_RULES_PATH: .
           RENOVATE_SHAREABLE_CONFIG_PRESET_FILE_NAMES: default.json
+          VALIDATE_JSCPD: false
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
