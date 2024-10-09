@@ -1,10 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":timezone(Asia/Tokyo)"],
+  "extends": ["config:best-practices", ":timezone(Asia/Tokyo)"],
   "automerge": true,
   "platformAutomerge": true,
   "prConcurrentLimit": 2,
-  "configMigration": true,
   "packageRules": [
     {
       "matchManagers": ["gomod"],
