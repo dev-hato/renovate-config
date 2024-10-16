@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 npm ci --prefer-offline
-action="$(yq '.jobs.build.steps[-1].uses' .github/workflows/super-linter.yml)"
-PATH="$(docker run --rm --entrypoint '' "ghcr.io/${action//\/slim@/:slim-}" /bin/sh -c 'echo $PATH')"
+tag="$(grep super-linter/super-linter/slim .github/workflows/super-linter.yml | sed -e 's/^ *uses: //g' | sed -e 's;/slim@.* # ;:slim-;g')"
+PATH="$(docker run --rm --entrypoint '' "ghcr.io/${tag}" /bin/sh -c 'echo $PATH')"
 echo "PATH=/github/workspace/node_modules/.bin:${PATH}" >>"$GITHUB_ENV"
