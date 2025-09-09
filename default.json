@@ -10,6 +10,10 @@
       "postUpdateOptions": ["gomodTidy"]
     },
     {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
       "matchPackageNames": ["npm"],
       "enabled": false
     }
