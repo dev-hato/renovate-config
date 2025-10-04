@@ -61,6 +61,7 @@ jobs:
           RENOVATE_SHAREABLE_CONFIG_PRESET_FILE_NAMES: default.json
           VALIDATE_JSCPD: false
           VALIDATE_GIT_COMMITLINT: false
+          VALIDATE_BIOME_FORMAT: false
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
