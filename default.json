@@ -10,7 +10,7 @@
       "postUpdateOptions": ["gomodTidy"]
     },
     {
-      "matchDatasources": ["*"],
+      "matchPackageNames": ["*", "!dev-hato/*"],
       "minimumReleaseAge": "7 days"
     },
     {
