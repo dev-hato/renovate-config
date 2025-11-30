@@ -10,6 +10,7 @@
       "postUpdateOptions": ["gomodTidy"]
     },
     {
+      "matchDatasources": ["*"],
       "minimumReleaseAge": "7 days"
     },
     {
