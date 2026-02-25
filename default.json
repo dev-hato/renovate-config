@@ -1,29 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:best-practices",
-    ":timezone(Asia/Tokyo)"
-  ],
-  "ignoreDeps": [
-    "npm"
-  ],
+  "extends": ["config:best-practices", ":timezone(Asia/Tokyo)"],
+  "ignoreDeps": ["npm"],
   "automerge": true,
   "platformAutomerge": true,
   "prConcurrentLimit": 2,
   "packageRules": [
     {
-      "matchManagers": [
-        "gomod"
-      ],
-      "postUpdateOptions": [
-        "gomodTidy"
-      ]
+      "matchManagers": ["gomod"],
+      "postUpdateOptions": ["gomodTidy"]
     },
     {
-      "matchPackageNames": [
-        "*",
-        "!dev-hato/*"
-      ],
+      "matchPackageNames": ["*", "!dev-hato/*"],
       "minimumReleaseAge": "7 days"
     }
   ],
