@@ -51,13 +51,17 @@ jobs:
           cache: npm
           node-version-file: .node-version
       - uses: flatt-security/setup-takumi-guard-npm@6d4182745c1e474c35a023573c2612c085be45a4 # v1.2.0
-      - run: bash "${GITHUB_WORKSPACE}/scripts/super_linter/build/set_path.sh"
+      - name: Prepare Super Linter PATH
+        id: linter_path
+        run: bash "${GITHUB_WORKSPACE}/scripts/super_linter/build/set_path.sh"
       ################################
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
+        id: super_linter
         uses: super-linter/super-linter/slim@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8.7.0
         env:
+          PATH: ${{ steps.linter_path.outputs.path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
           LINTER_RULES_PATH: .
