@@ -16,13 +16,16 @@ npmをNode.jsとは別に管理する必要が生じた場合に、除外を見�
 
 ## node-fetch
 
-[package.json](../package.json)で`node-fetch`を`2.6.12`に固定している。
-[renovate.json](../renovate.json)の`ignoreDeps`により、このリポジトリでの自動更新を無効にしている。
-共通プリセットの利用先には適用されない。
-
 [導入時の PR #1744](https://github.com/dev-hato/renovate-config/pull/1744)は、Super Linterの実行が終わらない問題への対応だった。
-[参照先の PR](https://github.com/dev-hato/hato-atama/pull/3551)でも、textlintの実行時間の問題に対して同じバージョンへ固定している。
-互換性のある更新も含め、現在はすべての自動更新が除外される。
+この対応で、[package.json](../package.json)の`node-fetch`を`2.6.13`から`2.6.12`へ変更して固定した。
+併せて、[renovate.json](../renovate.json)の`ignoreDeps`で、このリポジトリの自動更新を無効にした。
+この除外は共通プリセットの利用先には適用しなかった。
+[参照先の PR](https://github.com/dev-hato/hato-atama/pull/3551)でも、textlintの実行時間の問題に対して同じバージョンへ固定した。
+
+[固定解除を検証する PR #2068](https://github.com/dev-hato/renovate-config/pull/2068)では、直接依存と更新除外を削除し、推移依存を`2.6.13`へ更新する。
+ローカルではNode.js `24.21.0`を使い、キャッシュを毎回削除して両バージョンを3回ずつ比較した。
+いずれも約5.4〜5.8秒でtextlintが正常終了した。
+CIの結果やマージ状況は、同PRを参照する。
 
 除外の解除や許容範囲の拡大は、次の手順で判断する。
 
