@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "setup:lint": "npm --prefix tools/renovate ci --userconfig .npmrc --no-audit --no-fund",
+    "lint": "npm run lint:renovate && npm run lint:textlint",
+    "lint:renovate": "npm --prefix tools/renovate run lint",
+    "lint:textlint": "textlint README.md \"docs/**/*.md\""
+  },
   "devDependencies": {
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
