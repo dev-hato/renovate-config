@@ -11,7 +11,7 @@ permissions: read-all
 jobs:
   add-to-task-list:
     runs-on: ubuntu-latest
-    if: github.repository == github.event.pull_request.head.repo.full_name
+    if: github.event_name == 'issues' || github.repository == github.event.pull_request.head.repo.full_name
     steps:
       - name: Generate a token
         id: generate_token
@@ -20,6 +20,7 @@ jobs:
           client-id: ${{ secrets.PROJECT_AUTOMATION_APP_CLIENT_ID }} # zizmor: ignore[secrets-outside-env]
           private-key: ${{ secrets.PROJECT_AUTOMATION_PRIVATE_KEY }} # zizmor: ignore[secrets-outside-env]
           permission-organization-projects: write
+          permission-issues: read
           permission-pull-requests: read
       - uses: dev-hato/actions-add-to-projects@19b69be5ecacae2d6f8f09bbec7b74f2257f7426 # v1.0.9
         with:
