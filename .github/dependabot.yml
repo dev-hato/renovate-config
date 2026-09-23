@@ -1,0 +1,12 @@
+---
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories:
+      - /
+      - /tools/renovate
+    # Use https://npm.flatt.tech/ from each project's .npmrc without authentication.
+    schedule:
+      interval: weekly
+    # Renovate handles version updates; Dependabot handles security updates.
+    open-pull-requests-limit: 0
