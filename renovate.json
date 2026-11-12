@@ -1,4 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>dev-hato/renovate-config"]
+  "extends": ["github>dev-hato/renovate-config"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "default.json内のaqua-renovate-configのバージョンを更新する",
+      "managerFilePatterns": ["/^default\\.json$/"],
+      "matchStrings": [
+        "\"github>aquaproj/aqua-renovate-config#(?<currentValue>[^\"\\s]+)\""
+      ],
+      "depNameTemplate": "aquaproj/aqua-renovate-config",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
 }
