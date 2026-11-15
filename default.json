@@ -1,10 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", ":timezone(Asia/Tokyo)"],
+  "extends": [
+    "config:best-practices",
+    ":timezone(Asia/Tokyo)",
+    "github>aquaproj/aqua-renovate-config#2.14.0"
+  ],
   "ignoreDeps": ["npm"],
   "automerge": true,
   "platformAutomerge": true,
   "prConcurrentLimit": 2,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^\\.github\\/workflows\\/.+\\.ya?ml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\s+\\w+: (?<currentValue>\\S+)"
+      ],
+      "versioningTemplate": "semver"
+    }
+  ],
   "packageRules": [
     {
       "matchManagers": ["gomod"],
