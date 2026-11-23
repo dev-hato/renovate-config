@@ -5,6 +5,6 @@
     "lint": "renovate-config-validator --no-global --strict ../../default.json ../../renovate.json"
   },
   "devDependencies": {
-    "renovate": "44.239.1"
+    "renovate": "44.240.0"
   }
 }
